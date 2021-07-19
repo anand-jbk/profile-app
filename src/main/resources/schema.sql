@@ -1,0 +1,18 @@
+CREATE TABLE person (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(128) NOT NULL,
+    last_name VARCHAR(128) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE address (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    person_id INTEGER NOT NULL,
+    street VARCHAR(128) NOT NULL,
+    city VARCHAR(128) NOT NULL,
+    state VARCHAR(128) NOT NULL,
+    postal_code VARCHAR(128) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (person_id) REFERENCES person(id) ON DELETE CASCADE
+);
